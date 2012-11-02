@@ -63,42 +63,44 @@ public class DeleteContact extends Activity {
 
 				selectedContact = selectedName.split("\n", 2);
 
-				AlertDialog alertDialog = new AlertDialog.Builder(
-						DeleteContact.this).create();
-				alertDialog.setTitle("Delete");
-				alertDialog.setMessage("This contact will be deleted.");
-				alertDialog.setButton("Ok",
-						new DialogInterface.OnClickListener() {
+				
 
-							public void onClick(DialogInterface dialog,
-									int which) {
-								// TODO Auto-generated method stub
+					AlertDialog alertDialog = new AlertDialog.Builder(
+							DeleteContact.this).create();
+					alertDialog.setTitle("Delete");
+					alertDialog.setMessage("This contact will be deleted.");
+					alertDialog.setButton("Ok",
+							new DialogInterface.OnClickListener() {
 
-								if (deleteContact(selectedContact[1],
-										selectedContact[0])) {
+								public void onClick(DialogInterface dialog,
+										int which) {
+									// TODO Auto-generated method stub
 
-									Toast.makeText(DeleteContact.this,
-											"Contact Deleted",
-											Toast.LENGTH_SHORT).show();
+									if (deleteContact(selectedContact[1],
+											selectedContact[0])) {
 
+										Toast.makeText(DeleteContact.this,
+												"Contact Deleted",
+												Toast.LENGTH_SHORT).show();
+
+									}
+
+									finish();
 								}
+							});
 
-								finish();
-							}
-						});
+					alertDialog.setButton2("Cancel",
+							new DialogInterface.OnClickListener() {
 
-				alertDialog.setButton2("Cancel",
-						new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,
+										int which) {
+									// TODO Auto-generated method stub
 
-							public void onClick(DialogInterface dialog,
-									int which) {
-								// TODO Auto-generated method stub
-
-								dialog.dismiss();
-							}
-						});
-				alertDialog.show();
-
+									dialog.dismiss();
+								}
+							});
+					alertDialog.show();
+				
 			}
 		});
 
