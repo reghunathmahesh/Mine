@@ -71,9 +71,9 @@ ListView listView = (ListView) findViewById(R.id.listview);
 				
 				
 				AlertDialog alertDialog = new AlertDialog.Builder(DeleteContact.this).create();
-			       alertDialog.setTitle("Delete Contact");
-			       alertDialog.setMessage("Are you sure?");
-			       alertDialog.setButton("Yes", new DialogInterface.OnClickListener() {
+			       alertDialog.setTitle("Delete");
+			       alertDialog.setMessage("This contact will be deleted.");
+			       alertDialog.setButton("Ok", new DialogInterface.OnClickListener() {
 					
 					public void onClick(DialogInterface dialog, int which) {
 						// TODO Auto-generated method stub
@@ -86,6 +86,15 @@ ListView listView = (ListView) findViewById(R.id.listview);
 						}
 						
 						finish();
+					}
+				});
+			       
+			       alertDialog.setButton2("Cancel", new DialogInterface.OnClickListener() {
+					
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO Auto-generated method stub
+					
+						dialog.dismiss();					
 					}
 				});
 			       alertDialog.show();
