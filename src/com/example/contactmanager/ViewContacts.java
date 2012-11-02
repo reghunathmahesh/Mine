@@ -12,8 +12,6 @@ import android.widget.ListView;
 
 public class ViewContacts extends Activity {
 
-	String selectedName;
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -21,8 +19,6 @@ public class ViewContacts extends Activity {
 		setContentView(R.layout.view);
 
 		ListView listView = (ListView) findViewById(R.id.listview);
-		
-		
 
 		String name, phone;
 		ContentResolver cr = getContentResolver();
@@ -47,8 +43,6 @@ public class ViewContacts extends Activity {
 		}
 		listView.setAdapter(new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, names));
-
-		
 
 	}
 

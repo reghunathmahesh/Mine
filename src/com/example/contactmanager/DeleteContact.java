@@ -20,16 +20,14 @@ import android.widget.Toast;
 
 public class DeleteContact extends Activity {
 
-	String selectedContact[],selectedName;
+	String selectedContact[], selectedName;
 
 	@Override
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
 		setContentView(R.layout.view);
-		
-ListView listView = (ListView) findViewById(R.id.listview);
-		
-		
+
+		ListView listView = (ListView) findViewById(R.id.listview);
 
 		String name, phone;
 		ContentResolver cr = getContentResolver();
@@ -55,71 +53,54 @@ ListView listView = (ListView) findViewById(R.id.listview);
 		listView.setAdapter(new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, names));
 
-
 		listView.setOnItemClickListener(new OnItemClickListener() {
 
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
 				// TODO Auto-generated method stub
 
-				
-
 				selectedName = (String) arg0.getItemAtPosition(arg2);
 
-				selectedContact = selectedName.split("\n",2);
+				selectedContact = selectedName.split("\n", 2);
 
-				
-				
-				AlertDialog alertDialog = new AlertDialog.Builder(DeleteContact.this).create();
-			       alertDialog.setTitle("Delete");
-			       alertDialog.setMessage("This contact will be deleted.");
-			       alertDialog.setButton("Ok", new DialogInterface.OnClickListener() {
-					
-					public void onClick(DialogInterface dialog, int which) {
-						// TODO Auto-generated method stub
-						
-						if(deleteContact(selectedContact[1],selectedContact[0])){
-							
-							Toast.makeText(DeleteContact.this, "Contact Deleted",
-									Toast.LENGTH_SHORT).show();
+				AlertDialog alertDialog = new AlertDialog.Builder(
+						DeleteContact.this).create();
+				alertDialog.setTitle("Delete");
+				alertDialog.setMessage("This contact will be deleted.");
+				alertDialog.setButton("Ok",
+						new DialogInterface.OnClickListener() {
 
-						}
-						
-						finish();
-					}
-				});
-			       
-			       alertDialog.setButton2("Cancel", new DialogInterface.OnClickListener() {
-					
-					public void onClick(DialogInterface dialog, int which) {
-						// TODO Auto-generated method stub
-					
-						dialog.dismiss();					
-					}
-				});
-			       alertDialog.show();
+							public void onClick(DialogInterface dialog,
+									int which) {
+								// TODO Auto-generated method stub
 
-				//finish();
+								if (deleteContact(selectedContact[1],
+										selectedContact[0])) {
+
+									Toast.makeText(DeleteContact.this,
+											"Contact Deleted",
+											Toast.LENGTH_SHORT).show();
+
+								}
+
+								finish();
+							}
+						});
+
+				alertDialog.setButton2("Cancel",
+						new DialogInterface.OnClickListener() {
+
+							public void onClick(DialogInterface dialog,
+									int which) {
+								// TODO Auto-generated method stub
+
+								dialog.dismiss();
+							}
+						});
+				alertDialog.show();
 
 			}
 		});
-		
-
-		/*Button deletebtn = (Button) findViewById(R.id.deletecontact);
-
-		deletebtn.setOnClickListener(new OnClickListener() {
-
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-
-				if (deleteContact(phone, name))
-					Toast.makeText(DeleteContact.this, "Contact Deleted",
-							Toast.LENGTH_SHORT).show();
-
-				finish();
-
-			}
-		});*/
 
 	}
 

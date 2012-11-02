@@ -19,13 +19,13 @@ public class MainActivity extends Activity {
 
 		Button view = (Button) findViewById(R.id.viewButton);
 		Button add = (Button) findViewById(R.id.createButton);
-		Button delete = (Button)findViewById(R.id.deleteButton);
+		Button delete = (Button) findViewById(R.id.deleteButton);
 
 		view.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent(MainActivity.this,
 						ViewContacts.class);
-				
+
 				startActivity(intent);
 
 				Log.i("MainActivity", "Completed Displaying Contact list");
@@ -40,16 +40,17 @@ public class MainActivity extends Activity {
 
 			}
 		});
-		
+
 		delete.setOnClickListener(new OnClickListener() {
-			
+
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				
-				Intent intent=new Intent(MainActivity.this,DeleteContact.class);
-				
+
+				Intent intent = new Intent(MainActivity.this,
+						DeleteContact.class);
+
 				startActivity(intent);
-				
+
 			}
 		});
 

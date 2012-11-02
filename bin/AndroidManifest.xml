@@ -29,8 +29,6 @@
         </activity>
         <activity android:name=".DeleteContact" >
         </activity>
-        <activity android:name=".UpdateContact" >
-        </activity>
     </application>
 
 </manifest>
